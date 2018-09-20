@@ -1,7 +1,11 @@
+var amountC = 0;
+var amountL = 0;
+var amountS = 0;
+
+
 // Chocolate button
 document.querySelector('#numOfChoc').innerText = Cookies.get('amountC', amountC);
 
-var amountC = 0;
 document.querySelector('#subChoc').onclick = function() {
 	amountC = amountC + 1;
 	document.querySelector('#numOfChoc').innerText = amountC;
@@ -13,7 +17,6 @@ document.querySelector('#subChoc').onclick = function() {
 // Sugar Button
 document.querySelector('#numOfSugar').innerText = Cookies.get('amountS', amountS);
 
-var amountS = 0;
 document.querySelector('#subSug').onclick = function() {
 	amountS = amountS + 1;
 	document.querySelector('#numOfSugar').innerText = amountS;
@@ -26,7 +29,6 @@ document.querySelector('#subSug').onclick = function() {
 // Lemon Button
 document.querySelector('#numOfLemon').innerText = Cookies.get('amountL', amountL);
 
-var amountL = 0;
 document.querySelector('#subLem').onclick = function() {
 	amountL = amountL + 1;
 	document.querySelector('#numOfLemon').innerText = amountL;
@@ -35,13 +37,17 @@ document.querySelector('#subLem').onclick = function() {
 
 
 document.querySelector('#resetButton').onclick = function() {
-	Cookies.set("amountC", 0);
+	amountC = 0;
+	amountS = 0;
+	amountL = 0;
+
+	Cookies.set("amountC", amountC);
 	document.querySelector('#numOfChoc').innerText = amountC;
 	
-	Cookies.set("amountS", 0);
+	Cookies.set("amountS", amountS);
 	document.querySelector('#numOfSugar').innerText = amountS
 	
-	Cookies.set("amountL", 0);
+	Cookies.set("amountL", amountL);
 	document.querySelector('#numOfLemon').innerText = amountL;
 };
 
